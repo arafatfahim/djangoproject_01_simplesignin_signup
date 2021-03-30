@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+   
+
+    <!-- Title Page-->
+    <title>SignUp</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'styles/reg.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+        <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+            <div class="wrapper wrapper--w780">
+                <div class="card card-3">
+                    <div class="card-heading"></div>
+                    <div class="card-body">
+                        <h2 class="title">Registration Info</h2>
+                        <form action="{% url 'register' %}" method="POST">
+                            {% csrf_token %}
+                                <div class="input-group">
+                                    <input class="input--style-3" type="text" name="first_name" placeholder="First Name">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-3" type="text" name="last_name" placeholder="Last Name">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-3" type="text" name="username" placeholder="Username">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-3" type="email" name="email" placeholder="Email">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-3" type="password" name="password1" placeholder="Password">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-3" type="password" name="password2" placeholder="Confirm Password">
+                                </div>
+                                <div class="p-t-10">
+                                    <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                                </div>
+                        </form>
+                        <div class="text-center p-t-10">
+                            <a class="txt2" href="\accounts/login">
+                                Already have an account !?
+                                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                            </a>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Jquery JS-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'js/global.js' %}"></script>
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>
